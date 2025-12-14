@@ -15,15 +15,18 @@ export const categoryService = {
   },
 
   create: async (data: ICategoryFormData) => {
-    const payload = {
-      ...data,
-      [CategoryField.ICON]:
-        data[CategoryField.ICON] instanceof File
-          ? data[CategoryField.ICON].toString()
-          : data[CategoryField.ICON],
-    };
+    const formData = new FormData();
 
-    const response = await axiosInstance.post(ApiPath.CATEGORIES, payload, {
+    formData.append(CategoryField.NAME, data[CategoryField.NAME]);
+    formData.append(CategoryField.DESCRIPTION, data[CategoryField.DESCRIPTION]);
+
+    if (data[CategoryField.ICON] instanceof File) {
+      formData.append(CategoryField.ICON, data[CategoryField.ICON]);
+    } else if (data[CategoryField.ICON]) {
+      formData.append(CategoryField.ICON, data[CategoryField.ICON]);
+    }
+
+    const response = await axiosInstance.post(ApiPath.CATEGORIES, formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
@@ -33,15 +36,18 @@ export const categoryService = {
   },
 
   update: async (id: string, data: ICategoryFormData) => {
-    const payload = {
-      ...data,
-      [CategoryField.ICON]:
-        data[CategoryField.ICON] instanceof File
-          ? data[CategoryField.ICON].toString()
-          : data[CategoryField.ICON],
-    };
+    const formData = new FormData();
 
-    const response = await axiosInstance.put(`${ApiPath.CATEGORIES}/${id}`, payload, {
+    formData.append(CategoryField.NAME, data[CategoryField.NAME]);
+    formData.append(CategoryField.DESCRIPTION, data[CategoryField.DESCRIPTION]);
+
+    if (data[CategoryField.ICON] instanceof File) {
+      formData.append(CategoryField.ICON, data[CategoryField.ICON]);
+    } else if (data[CategoryField.ICON]) {
+      formData.append(CategoryField.ICON, data[CategoryField.ICON]);
+    }
+
+    const response = await axiosInstance.put(`${ApiPath.CATEGORIES}/${id}`, formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
