@@ -24,7 +24,7 @@ export const Table = <T,>({
   keyField = 'id' as keyof T,
 }: TableProps<T>) => {
   return (
-    <div className="bg-background rounded-lg shadow overflow-hidden border border-border w-full">
+    <div className="bg-background rounded-lg shadow overflow-hidden w-full">
       <div className="overflow-x-auto">
         <table className="min-w-full divide-y divide-border">
           <thead className="bg-card-background">
@@ -39,7 +39,7 @@ export const Table = <T,>({
               ))}
             </tr>
           </thead>
-          <tbody className="bg-background divide-y divide-border">
+          <tbody className="bg-background">
             {isLoading ? (
               <tr>
                 <td colSpan={columns.length} className="px-6 py-4 text-center text-muted">
