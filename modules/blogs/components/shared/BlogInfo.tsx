@@ -7,7 +7,15 @@ import { FiCalendar, FiClock, FiEye } from 'react-icons/fi';
 import { getTimeToRead } from '../../blog.helper';
 import BlogShare from './BlogShare';
 
-const BlogInfo = ({ blog, cardView = false }: { blog: IBlog; cardView?: boolean }) => {
+const BlogInfo = ({
+  blog,
+  cardView = false,
+  hideShare = false,
+}: {
+  blog: IBlog;
+  cardView?: boolean;
+  hideShare?: boolean;
+}) => {
   return (
     <div className="flex items-center gap-8 text-sm">
       <div className="flex items-center gap-x-4 gap-y-2 flex-wrap text-muted">
@@ -38,11 +46,13 @@ const BlogInfo = ({ blog, cardView = false }: { blog: IBlog; cardView?: boolean 
           </div>
         )}
       </div>
-      <BlogShare
-        title={blog[BlogField.TITLE]}
-        link={`${process.env.NEXT_PUBLIC_BASE_URL}/blogs/${blog[BlogField.SLUG]}`}
-        className="ml-auto"
-      />
+      {!hideShare && (
+        <BlogShare
+          title={blog[BlogField.TITLE]}
+          link={`${process.env.NEXT_PUBLIC_BASE_URL}/blogs/${blog[BlogField.SLUG]}`}
+          className="ml-auto"
+        />
+      )}
     </div>
   );
 };

@@ -39,7 +39,7 @@ const BlogCard = ({ blog }: { blog: IBlog }) => {
             className="text-muted text-sm line-clamp-2 leading-relaxed"
           ></p>
           <hr className="border-border/50 my-1" />
-          <BlogInfo cardView blog={blog} />
+          <BlogInfo cardView blog={blog} hideShare={true} />
         </div>
       </Link>
     </motion.article>

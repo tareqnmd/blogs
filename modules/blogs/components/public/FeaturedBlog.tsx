@@ -40,7 +40,7 @@ const FeaturedBlog = ({ blog }: { blog: IBlog }) => {
                   >
                     <BlogCategory category={blog[BlogField.CATEGORY]} />
                     <BlogTitle className="group-hover:text-accent" title={blog[BlogField.TITLE]} />
-                    <BlogInfo blog={blog} />
+                    <BlogInfo blog={blog} hideShare={true} />
                   </motion.div>
                 </div>
               </div>
