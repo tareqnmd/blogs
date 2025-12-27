@@ -9,7 +9,7 @@ const BlogListingLoading = () => {
           <Skeleton className="h-6 w-full max-w-md" />
         </div>
 
-        <div className="flex flex-col md:flex-row gap-6 items-center justify-between bg-card-background border border-border rounded-2xl p-6 shadow-sm">
+        <div className="flex flex-col md:flex-row gap-6 items-center justify-between bg-card-background rounded-2xl p-6 shadow-sm">
           <Skeleton className="h-12 w-full md:w-96 rounded-xl" />
           <Skeleton className="h-12 w-full md:w-64 rounded-xl" />
         </div>
@@ -19,7 +19,7 @@ const BlogListingLoading = () => {
         {Array.from({ length: 9 }).map((_, i) => (
           <div
             key={i}
-            className="h-full bg-card-background rounded-2xl overflow-hidden border border-border flex flex-col"
+            className="h-full bg-card-background rounded-2xl overflow-hidden flex flex-col"
           >
             <Skeleton className="w-full aspect-video rounded-none" />
             <div className="p-4 flex flex-col gap-4 flex-1">
