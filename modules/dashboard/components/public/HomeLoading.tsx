@@ -5,7 +5,7 @@ const HomeLoading = () => {
     <>
       <section className="relative py-12 md:py-16 overflow-hidden">
         <div className="container relative z-10">
-          <div className="relative overflow-hidden rounded-xl bg-card-background border border-border">
+          <div className="relative overflow-hidden rounded-xl bg-card-background">
             <div className="flex flex-col lg:grid lg:grid-cols-2">
               <Skeleton className="h-[300px] md:h-[400px] lg:h-[500px] w-full rounded-none" />
               <div className="p-6 md:p-10 flex flex-col justify-center gap-6 h-full">
